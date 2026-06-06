@@ -20,19 +20,19 @@ class DatabaseSeeder extends Seeder
                 'name' => 'Admin',
                 'email' => 'admin@fleet.local',
                 'password' => Hash::make('password'),
-                'role' => 'admin',
+                'role' => 'administrator',  // بدل 'admin'
             ],
             [
                 'name' => 'Fleet Manager',
                 'email' => 'manager@fleet.local',
                 'password' => Hash::make('password'),
-                'role' => 'gestionnaire',
+                'role' => 'fleet_manager',  // بدل 'gestionnaire'
             ],
             [
                 'name' => 'Khalil',
                 'email' => 'khalil@gmail.com',
                 'password' => Hash::make('password'),
-                'role' => 'admin',
+                'role' => 'administrator',
             ],
         ];
 
