@@ -20,4 +20,4 @@ RUN a2enmod rewrite
 
 EXPOSE 80
 
-CMD bash -c "php artisan migrate --force && apache2-foreground"
+CMD bash -c "php artisan migrate --force && php artisan db:seed --class=UserSeeder --force && apache2-foreground"
