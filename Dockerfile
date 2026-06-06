@@ -1,8 +1,8 @@
 FROM php:8.2-apache
 
 RUN apt-get update && apt-get install -y \
-    libzip-dev zip unzip git curl \
-    && docker-php-ext-install pdo pdo_mysql zip
+    libzip-dev zip unzip git curl libpq-dev \
+    && docker-php-ext-install pdo pdo_mysql pdo_pgsql zip
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
@@ -20,4 +20,4 @@ RUN a2enmod rewrite
 
 EXPOSE 80
 
-CMD ["apache2-foreground"]
+CMD bash -c "php artisan migrate --force && apache2-foreground"
